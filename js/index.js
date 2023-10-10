@@ -45,5 +45,10 @@ async function fetchDataAndRender() {
   const apiUrl = "https://swapi.dev/api/people/";
   const resonse = await fetch(apiUrl);
   const data = await resonse.json();
-  await data.results.forEach((element) => renderElement(Card(element)));
+
+  //  data.results.forEach((entry) => renderElement(Card(entry)));
+  data.results.forEach((entry) => {
+    const newCard = Card(entry);
+    renderElement(newCard);
+  });
 }
